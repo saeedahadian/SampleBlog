@@ -46,6 +46,15 @@ router.put('/updateUser/:userId', urlencodeParser, (req, res) => {
 });
 
 
+router.delete("/deleteUser/:userId", urlencodeParser, (req, res) => {
+  User.findByIdAndDelete(req.params.userId, (err, user) => {
+    if (err) return res.status(500).send("Something went wrong!" + err);
+    if (!user) return res.status(404).send("User not found!");
+    return res.json(user);
+  });
+});
+
+
 /**
  * Export the module for use in "app.js."
  */
