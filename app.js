@@ -8,6 +8,7 @@ const app = express();
 const mongoose = require('mongoose');
 
 const userRouter = require('./routes/user.js');
+const adminRouter = require('./routes/admin.js');
 
 
 /**
@@ -35,6 +36,7 @@ app.set('view engine', 'ejs');
  */
 app.use(express.static('./public'));
 app.use('/', userRouter);
+app.use('/admin', adminRouter);
 
 
 /**

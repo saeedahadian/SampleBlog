@@ -14,11 +14,13 @@ const UserSchema = new Schema({
   },
   firstName: {
     type: String,
+    uppercase: true,
     maxlength: [20, "Whose name is that long?"],
     required: false
   },
   lastName: {
     type: String,
+    uppercase: true,
     maxlength: [20, "Whose name is that long?"],
     required: false
   },
@@ -35,4 +37,4 @@ const UserSchema = new Schema({
 
 
 // Export the user model.
-module.export = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('User', UserSchema);
